@@ -79,6 +79,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\AveriaSansLibre-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -86,8 +87,6 @@
   <ItemGroup>
     <Content Include="viking-ship.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

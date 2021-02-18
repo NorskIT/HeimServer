@@ -59,5 +59,15 @@ namespace HeimServer.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] AveriaSansLibre_Regular {
+            get {
+                object obj = ResourceManager.GetObject("AveriaSansLibre_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

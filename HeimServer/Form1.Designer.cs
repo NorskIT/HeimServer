@@ -96,7 +96,7 @@ namespace HeimServer
             this.serverNameBox.Name = "serverNameBox";
             this.serverNameBox.Size = new System.Drawing.Size(242, 20);
             this.serverNameBox.TabIndex = 1;
-            this.serverNameBox.Text = "HeimServer | 60+ players | Mods | Custom cmds";
+            this.serverNameBox.Text = "Servername";
             this.serverNameBox.TextChanged += new System.EventHandler(this.ServerNameBox_TextChanged);
             // 
             // italicCheckBox
@@ -211,7 +211,6 @@ namespace HeimServer
             this.serverNamePreview.Name = "serverNamePreview";
             this.serverNamePreview.Size = new System.Drawing.Size(531, 41);
             this.serverNamePreview.TabIndex = 9;
-            this.serverNamePreview.Text = "HeimServer";
             this.serverNamePreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.serverNamePreview.UseCompatibleTextRendering = true;
             // 

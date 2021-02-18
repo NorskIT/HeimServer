@@ -14,6 +14,7 @@ namespace HeimServer
         public Form1()
         {
             InitializeComponent();
+            AddCustomFont();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -77,6 +78,17 @@ namespace HeimServer
                 txt = "<i>" + txt + "</i>";
             }
             return txt;
+        }
+
+        private void AddCustomFont()
+        {
+            PrivateFontCollection averiaRegular = new PrivateFontCollection();
+            int fontLength = Properties.Resources.AveriaSansLibre_Regular.Length;
+            byte[] fontdata = Properties.Resources.AveriaSansLibre_Regular;
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+            Marshal.Copy(fontdata, 0, data, fontLength);
+            averiaRegular.AddMemoryFont(data, fontLength);
+            serverNamePreview.Font = new Font(averiaRegular.Families[0], serverNamePreview.Font.Size);
         }
 
         private void ServerNameBox_TextChanged(object sender, EventArgs e)
