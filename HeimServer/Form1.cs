@@ -19,14 +19,12 @@ namespace HeimServer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int pos = 0;
-            int index = 0;
             String[] colors = { "white", "aqua", "black", "blue", "brown", "cyan", "darkblue", "fuchsia", "green", "grey", "lightblue", "lime", "magenta", "maroon", "navy", "olive", "orange", "purple", "red", "silver", "teal", "yellow" };
             foreach (String color in colors)
             {
                 colorSelector.Items.Add(color);
             }
-            colorSelector.SelectedIndex = index;
+            colorSelector.SelectedIndex = 0;
             serverNamePreview.Text = serverNameBox.Text;
 
         }
@@ -40,8 +38,9 @@ namespace HeimServer
             String worldStr = worldBox.Text;
             String txt = "@echo off";
             txt += "\nset SteamAppId=892970";
-            txt += "\necho \"Starting server PRESS CTRL-C to exit\" ";
+            txt += "\necho \"Made with 'HeimServer: Create server startup file'\" ";
             txt += "\n";
+            txt += "\necho \"Starting server PRESS CTRL-C to exit\" ";
             txt += "\nvalheim_server -nographics -batchmode -name \"" + serverNameStr + "\" -port " + portStr + " -world \"" + worldStr + "\" -password \"" + passStr + "\"";
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.FileName = "start_headless_server.bat";
@@ -56,7 +55,7 @@ namespace HeimServer
 
         private String CreateServerName()
         {
-            String txt = "<color=" + ((Color)colorSelector.SelectedItem).Name + ">" + serverNameBox.Text + "</color>";
+            String txt = "<color=" + ((String)colorSelector.SelectedItem) + ">" + serverNameBox.Text + "</color>";
             if(boldCheckBox.Checked && italicCheckBox.Checked)
             {
                 txt = "<b><i>" + txt + "</b></i>";
@@ -90,7 +89,7 @@ namespace HeimServer
 
         private void ColorSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            serverNamePreview.ForeColor = Color.FromName( ((String)((ComboBox)sender).SelectedItem) );
+            serverNamePreview.ForeColor = Color.FromName(((String)((ComboBox)sender).SelectedItem));
         }
 
         private void BoldCheckBox_CheckedChanged(object sender, EventArgs e)
