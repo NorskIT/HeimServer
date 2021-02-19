@@ -222,7 +222,7 @@ namespace HeimServer
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(40, 13);
             this.versionLabel.TabIndex = 2;
-            this.versionLabel.Text = "v.1.1.0";
+            this.versionLabel.Text = "v.1.1.1";
             // 
             // createFileButton
             // 
