@@ -21,18 +21,10 @@ namespace HeimServer
         {
             int pos = 0;
             int index = 0;
-            foreach (KnownColor knownColor in Enum.GetValues(typeof(KnownColor)))
+            String[] colors = { "white", "aqua", "black", "blue", "brown", "cyan", "darkblue", "fuchsia", "green", "grey", "lightblue", "lime", "magenta", "maroon", "navy", "olive", "orange", "purple", "red", "silver", "teal", "yellow" };
+            foreach (String color in colors)
             {
-                Color color = Color.FromKnownColor(knownColor);
-                if (!color.IsSystemColor)
-                {
-                    colorSelector.Items.Add(color);
-                    if(color.Name == "White")
-                    {
-                        index = pos;
-                    }
-                    pos++;
-                }
+                colorSelector.Items.Add(color);
             }
             colorSelector.SelectedIndex = index;
             serverNamePreview.Text = serverNameBox.Text;
@@ -48,7 +40,7 @@ namespace HeimServer
             String worldStr = worldBox.Text;
             String txt = "@echo off";
             txt += "\nset SteamAppId=892970";
-            txt += "\necho \"Starting server PRESS CTRL-C to exit\"";
+            txt += "\necho \"Starting server PRESS CTRL-C to exit\" ";
             txt += "\n";
             txt += "\nvalheim_server -nographics -batchmode -name \"" + serverNameStr + "\" -port " + portStr + " -world \"" + worldStr + "\" -password \"" + passStr + "\"";
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -98,7 +90,7 @@ namespace HeimServer
 
         private void ColorSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            serverNamePreview.ForeColor = ((Color)((ComboBox)sender).SelectedItem);
+            serverNamePreview.ForeColor = Color.FromName( ((String)((ComboBox)sender).SelectedItem) );
         }
 
         private void BoldCheckBox_CheckedChanged(object sender, EventArgs e)
